@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000" # Exposes port 3000 for the frontend
+    networks:
+      - app-network
+    depends_on:
+      - backend # Ensure the backend starts before frontend
+
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000" # Exposes port 8080 for the backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
