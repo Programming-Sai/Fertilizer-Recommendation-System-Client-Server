@@ -91,6 +91,13 @@ git submodule update --init --recursive
    docker-compose up --build
    ```
 
+   - To stop it you can run
+
+   ```bash
+     # Ctrl + C  # If running in the foreground
+     docker-compose down  # To stop and remove containers
+   ```
+
    This will build and run the frontend and backend containers.
 
 ## Usage
